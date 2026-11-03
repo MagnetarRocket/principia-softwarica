@@ -1,21 +1,45 @@
-# motivations: Knuth page! Pike 9fans! HN entries showing interest! GoT books! STEPS video?
-# motivations: at least I was able to make xix and goken from all those books
+# motivations: Knuth page! Pike 9fans! AI vs knowledge organizer
+# motivations: at least I was able to make xix/goken/ix from all those books
 
 * Big plan 
+#CLAUDE: using style of almost finished books as examples to learn from,
+#  complete the one with low LOE/LOC ratio
 
 ** TODO changes.txt
+#maybe wait to finish Omk.pdf/Orc.pdf/Orio.pdf/Oed.pdf before continuing Principia?
+#update: or wait Tiny and mini edition of principia for those books?
 
 - Linker (5l) 1.0 pdf
 - Assembler (5a) 1.0 pdf
+  # maybe more complicated than Linker.nw?
+  # maybe not if start with simpler helloworld.s without the virtual/pseudo
+  # stuff at first, even though we already partially do that
+  # see also https://github.com/Tackx/c8-ass
 - Compiler (5c) 1.0 pdf
+  # https://sdcc.sourceforge.net/
 
-- pi2 (and qemu?), pi4 (arm64)
-- riscv support orange pi (and tinyemu?)
-- latte pc (amd64?)
+- Libcore
+  # and start sync with goken
+- Utilities
+  # and sync with goken, and opportunity to start ohoc, oawk (fun)
+
+- Profiler.nw, Machine.mw, Widgets.nw
+  # small one, more relaxing maybe
 
 - LPization hoc in Utilities.nw
 
-- web testable! https://www.pcjs.org/ or vx
+
+** ix superseded?
+
+- ix? pi2 (and qemu?), pi4 (arm64)
+- ix? riscv support orange pi (and tinyemu?)
+- ix? latte pc (amd64?)
+
+- ix? web testable! https://www.pcjs.org/ or vx
+- ix? perhaps document processing/typesetting
+  but troff is ugly, maybe lout? or leave that to xix rewrite of lout?
+- ix? maybe upas?
+
 
 ** test infra
 - add test infra to check for regressions
@@ -30,12 +54,8 @@ the book:
 
 - more Plan 9 network servers/protocol implementations
 - more filesystem/storage programs
-- perhaps document processing/typesetting
-  but troff is ugly, maybe lout? or leave that to xix rewrite of lout?
 - perhaps a particularly good crypto implementation
 - perhaps a historically important Unix program that isn't represented by the Plan 9 ecosystem.
-
-maybe upas?
 
 or fossil/venti (userspace fs, snapshot, log, etc.)
 
@@ -44,6 +64,22 @@ or factotum (security as fs) and crypto stuff?
 distributed system, RPC, etc. but 9p has it a bit.
 
 ** Later
+
+*** LATER FUN implement features worth reducing code (or doing it in occ!)
+see what Claude proposed:
+- foreach f in Struct (compile time field iteration, a deriving-like feature)
+  or go full speed and implement comptime a la Zig? (and now mojo) or
+  a la MetaOcaml?
+- downward-only closures (poor's man closures)
+- growing array (poor's man generics)
+
+could even preprocess the code and generate from a .C a .c!
+so could incrementally adopt this higher C :)
+
+more complex:
+- defer (good especially for kernel, waserror()/nexterror() is tricky)
+- lib9p improved
+
 
 *** LATER compile plan9 under plan9, 
 try go back in time for 8a/8c/8l to point where it was still working!
@@ -87,7 +123,7 @@ more recently the 9front fork
 
 ** priority 1: get a working version out! so I can get more people to help
 
-*** fix bugs in C compiler, linker, etc. and/or switch to goken9cc
+*** dome? fix bugs in C compiler, linker, etc. and/or switch to goken9cc
 #for 8xx and 5xx versions (but especially 5xx versions)
 
 **** try basic assembler
@@ -110,9 +146,13 @@ libc?
 ** priority 2: write!
 #focus: use remarkable! annotate! and work on new chapters, don't look back!
 # get first a full draft! no procrastinating on non-important stuff (ex:lineage)
-#update: use chatGPT/ClaudeCode to refine
+#update: use chatGPT/ClaudeCode to refine, first annotating pass on remarkable
 
 finish 4 pairs? 5a/5l, lex/yacc, draw/rio, efuns/ocamlgit (ocaml books)
+
+produce Libcore/Utilities Machine /Widgets/Profiler and Compiler
+and put all pdfs on remarkable
+need fix mk index for all, with no ERROR: in output
 
 ** still? priority 3: find publisher?
 Or this cool italian editor with nice process?
@@ -122,18 +162,93 @@ https://news.ycombinator.com/item?id=27490988
 #so can see if regressions; bad to explain code that does not work anymore!
 #alt: partially solved now with goken and synced code with principia
 
-** RELAX go through all .nw %history notes on related work and
+** RELAX 
+
+*** RELAX go through all .nw %history notes on related work and
 extend lineage.txt accordingly 
 
-** RELAX go through software-src/ again
+*** RELAX go through software-src/ again
 or go through different lineage.pdf
 
 * Last
 
+** Last2
+
+*** fix Jensen's pb USB data transfer between computer from Pi
+
+*** RELAX fix sokoban game, path to /sys/games/... 
+
+*** RELAX use more symlinks for files stored in ROOT/ related to the project?
+troff, sokoban, yacc yaccpar, lex ncform, etc.
+
+*** FUN add and compile doom under plan9
+# you're not a real system if you don't have doom running :)
+# also opportunity then to also revive ocamldoom!
+
+save the diff_doom9 analysis too
+
+I've seen a doom-plan9 around in ~/work/
+taken from 9front!
+working .wad? toy wad free files around? take the one from ocamldoom?
+
+*** add compilation hello.c test with correct u.h resolution for Jensen
+
+*** fix hellorio.c example session for Michael Jensen
+
+*** fix https://github.com/aryx/principia-softwarica/issues/8
+try 5c and mk and more under principia itself! should work now!
+need sync back probably though
+
+*** less: principia: add missing doctype program than man reports?
+
+*** resume tests/5c/ under principia!
+but need libc that is working and have compatible
+object code from goken generated arm/libc.a
+
+*** help others to use principia (and goken), so I can recruit people to help!
+
+**** fix issue reported Make.nw and mk/5a/5c/5l failures
+should work better now that toolchain synced with (working) goken9cc
+
+**** fix drawterm and libsec for eduardo
+
+**** improve Debugger.nw so can answer 9fans question about stk()
+and weird order of params/args in call stack
+
+*** -----------------------------------------------------
+
+*** bug iar not finding setjmp for arm which forced a hacky split of
+the file in separate longjmp.s
+I did similar hacks in the past, but looks wrong
+
+*** -----------------------------------------------------
+
+*** try to compile principia with -X to remove opti
+#need to add it back to goken first
+update now -O0
+
+*** finalize test infra test_386.rc (run 5a, 5c, etc. mk, rc, etc.)
+
+*** ---------------------------------------------------
+
+*** fix drawterm-check issues for eduardo
+
+**** drawterm-check, build factotum and other auth progs
+
+**** build factotum and other progs
+
+**** setup factotum in boot.rc
+
+**** run listen1 for cpu and more
+
+*** fix git/clone https:// (and also gits://)
+with git9
+(and ideally also ssh:// for eduardo)
+
+
 ** Last1
 
 *** fix fault when executing ~/longrun.c!
-
 
 *** why error in regexec.c didn't trigger its recompilation?
 why it did still generate a regexec.8 ??
@@ -187,7 +302,6 @@ at least make sure they don't segfault like rc currently does
 
 *** try make principia work with qemu-system-arm with 9pi and dosdisk.img
 pb of size of dosdisk.img at 513 instead of 512 because of bootsector
-
 
 ** Dev infra
 
@@ -583,6 +697,9 @@ probably worth fixing!
 
 ** Shell.nw
 
+*** Shell.nw: better LP split 'man' in Shell
+
+
 *** still? more consistent type capitalized, and consistent use of typedefs
 Code, Tree, etc
 
@@ -781,6 +898,15 @@ below
 
 
 ** Kernel.nw
+
+*** Kernel.nw
+no float? Pi1 support VFP not FPA, but 5c generates FPA
+and 5l without -f handles only FPA, and FPA is triggering fault
+in theory on Pi1, so any float op in principia on Pi leads
+to a fault and then software float emulation?
+
+time to add -f and use VFP instead?
+
 
 *** Last
 
