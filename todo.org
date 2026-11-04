@@ -1768,6 +1768,29 @@ and mention in Principia.nw and LOC code orga tabular
 
 * Code
 
+** chidb
+
+*** RELAX FUN chidb: start to lpize! Database_extra.nw
+fun, learning about database, finally! I need to bring back
+my db book when I go to Bouvron
+
+*** chidb: distribute Database_extra.nw to Database.nw, automatically
+like I did with Browser.nw with Claude, ensuring omk sync
+shows no diff after
+
+*** add chidb to goken? to principia? leave its own repo for now?
+but at least make it so goken can compile it and we can run it under plan 9
+(and later even xv6!)
+
+*** --------------------------------------------------
+
+*** LATER add transactions, again imitating sqlite
+
+*** LATER add cost-based query planner and better optimizer, again imitating sqlite
+
+*** LATER add other good and not too big features from sqlite to chidb?
+
+
 ** profiler
 
 *** less: try to improve 'stats' program
